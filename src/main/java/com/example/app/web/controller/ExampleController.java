@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("something")
 public class ExampleController {
 
     private ExampleService exampleService;
@@ -20,9 +19,13 @@ public class ExampleController {
         this.exampleService = exampleService;
     }
 
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public ModelAndView setup() {
+        return new ModelAndView("home");
+    }
+
     @RequestMapping(value = "/setup", method = RequestMethod.GET)
     public ModelAndView setup(@PathVariable("entityId") String entityId) {
-
         return new ModelAndView("viewName");
     }
 

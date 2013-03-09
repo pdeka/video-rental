@@ -10,9 +10,9 @@
     <span>Recent Connections</span>
 </div>
 <ul>
-    <c:forEach var="link" items="${connectionLinks}">
-    <li><a href="${servletPath}${link.key}" class="connection"><c:out value="${util:capitalizeAllWords(link.value)}" /></a></li>
-    </c:forEach>
+    <%--<c:forEach var="link" items="${connectionLinks}">--%>
+    <%--<li><a href="${servletPath}${link.key}" class="connection"><c:out value="${util:capitalizeAllWords(link.value)}" /></a></li>--%>
+    <%--</c:forEach>--%>
 </ul>
 </c:when>
 <c:otherwise>
