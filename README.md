@@ -1,4 +1,4 @@
-Spring Quickstart
+Video Rental
 =================
 
-A quick start to a working spring app.
+Happy coding to change the world.
