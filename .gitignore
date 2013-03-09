@@ -1,6 +1,4 @@
 build/
 out/
-lib/buildtime/
-lib/jetty/
-lib/runtime/
+lib/
 example-project.iws
