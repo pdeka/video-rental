@@ -1,3 +1,6 @@
 build/
 out/
+lib/buildtime/
+lib/jetty/
+lib/runtime/
 example-project.iws
