@@ -12,7 +12,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jetty-jars" level="project" />
-    <orderEntry type="library" exported="" name="runtime-jars" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="runtime-jars" level="project" />
     <orderEntry type="library" exported="" name="buildtime-jars" level="project" />
   </component>
 </module>
