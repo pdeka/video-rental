@@ -17,7 +17,7 @@
         <pathelement location="${src.dir}/deployment/env/dev"/>
         <fileset dir="${compile.dir}"/>
         <fileset dir="lib/runtime/jar"/>
-        <fileset dir="lib/buildtime/jar" />
+        <fileset dir="lib/buildtime/jar"/>
         <fileset dir="lib/jetty/jar" excludes="ant-*.jar"/>
     </path>
 
@@ -40,13 +40,13 @@
         </sequential>
     </macrodef>
 
-    <macrodef name="unit-test">
+    <macrodef name="run-test">
         <attribute name="testdir"/>
         <attribute name="classpath"/>
         <sequential>
             <mkdir dir="${test.report.dir}"/>
             <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes">
-                <classpath refid="@{classpath}" />
+                <classpath refid="@{classpath}"/>
                 <formatter type="xml"/>
                 <batchtest if="testcase" todir="${test.report.dir}">
                     <fileset dir="@{testdir}/java">
@@ -56,6 +56,7 @@
                 <batchtest unless="testcase" todir="${test.report.dir}">
                     <fileset dir="@{testdir}/java">
                         <include name="**/*Tests.java"/>
+                        <include name="**/*Test.java"/>
                     </fileset>
                 </batchtest>
             </junit>
@@ -94,19 +95,31 @@
     </target>
 
     <target name="run-tests"
-            depends="run-unit-tests, run-integration-tests, run-system-tests, report-tests, check-failed-tests"
+            depends="run-unit-tests-without-reporting, run-integration-tests-without-reporting, run-system-tests-without-reporting, report-tests, check-failed-tests"
             description="Run all unit, integration and system tests."/>
 
-    <target name="run-unit-tests" depends="make-jars">
-        <unit-test testdir="${unit.test.dir}" classpath="common-classpath"/>
+    <target name="run-unit-tests"
+            depends="run-unit-tests-without-reporting, report-tests, check-failed-tests"
+            description="Run unit tests, report and halt if any test failed."/>
+
+    <target name="run-integration-tests"
+            depends="run-integration-tests-without-reporting, report-tests, check-failed-tests"
+            description="Run integration tests, report and halt if any test failed."/>
+
+    <target name="run-system-tests"
+            depends="run-system-tests-without-reporting, report-tests, check-failed-tests"
+            description="Run system tests, report and halt if any test failed."/>
+
+    <target name="run-unit-tests-without-reporting" depends="make-jars">
+        <run-test testdir="${unit.test.dir}" classpath="system-classpath"/>
     </target>
 
-    <target name="run-integration-tests" depends="make-jars">
-        <unit-test testdir="${integration.test.dir}" classpath="common-classpath"/>
+    <target name="run-integration-tests-without-reporting" depends="make-jars">
+        <run-test testdir="${integration.test.dir}" classpath="system-classpath"/>
     </target>
 
-    <target name="run-system-tests" depends="make-jars">
-        <unit-test testdir="${system.test.dir}" classpath="system-classpath"/>
+    <target name="run-system-tests-without-reporting" depends="make-jars">
+        <run-test testdir="${system.test.dir}" classpath="system-classpath"/>
     </target>
 
     <target name="report-tests" if="unit.tests.failed">
@@ -117,6 +130,7 @@
     </target>
 
     <target name="check-failed-tests" if="unit.tests.failed">
+        <echo message="Checking for test failures"/>
         <fail message="One or more tests failed. Please check the logs for more info."/>
     </target>
 
