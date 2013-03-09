@@ -1,105 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6516992f-0502-4228-b06e-b88787f6c993" name="Default" comment="Prabin - Tried calling the home jsp">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/domain/ChildrensPrice.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/domain/Movie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/domain/NewReleasePrice.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/domain/Price.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/domain/RegularPrice.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/repository/MovieRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/app/web/controller/MovieController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/schema.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/wizard.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/commons-dbcp-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/commons-pool-1.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/junit-4.8.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/mockito-core-1.8.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/org.springframework.test-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/selenium-api-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/selenium-firefox-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/selenium-htmlunit-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/selenium-java-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/selenium-remote-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/selenium-server-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/jar/servlet-api-2.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/commons-dbcp-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/commons-pool-1.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/selenium-api-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/selenium-firefox-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/selenium-htmlunit-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/selenium-java-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/selenium-remote-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/javadoc/selenium-server-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/commons-dbcp-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/commons-pool-1.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/junit-4.8.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/mockito-core-1.8.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/selenium-api-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/selenium-firefox-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/selenium-htmlunit-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/selenium-java-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/selenium-remote-driver-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/selenium-server-2.24.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/source/servlet-api-2.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/buildtime/src/org.springframework.test-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/jar/ant-1.6.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/jar/ecj-3.5.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/jar/jetty-6.1.22.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/jar/jetty-util-6.1.22.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/jar/jsp-2.1-glassfish-2.1.v20100127.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/jar/jsp-api-2.1-glassfish-2.1.v20100127.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jetty/source/jetty-6.1.22.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/freemarker-2.3.16.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/jcl-over-slf4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.asm-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.beans-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.context-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.context.support-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.core-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.expression-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.jdbc-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.transaction-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.web-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/org.springframework.web.servlet-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/jar/slf4j-jcl-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/javadoc/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/javadoc/jcl-over-slf4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/javadoc/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/javadoc/slf4j-jcl-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/source/commons-lang-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/source/freemarker-2.3.16.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/source/jcl-over-slf4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/source/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/source/slf4j-jcl-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.asm-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.beans-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.context-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.context.support-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.core-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.expression-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.jdbc-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.transaction-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.web-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/runtime/src/org.springframework.web.servlet-sources-3.0.2.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/example/app/DomainObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/example/app/repository/ExampleRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/example/app/services/ExampleService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/example/app/web/controller/ExampleController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/example/app/web/controller/ExampleConversation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example-project.iml" afterPath="$PROJECT_DIR$/example-project.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example-project.ipr" afterPath="$PROJECT_DIR$/example-project.ipr" />
+    <list default="true" id="6516992f-0502-4228-b06e-b88787f6c993" name="Default" comment="Prabin - Movies working">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example-project.iws" afterPath="$PROJECT_DIR$/example-project.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ivy.xml" afterPath="$PROJECT_DIR$/ivy.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" />
     </list>
     <ignored path="example-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -189,7 +93,7 @@
       <file leaf-file-name="applicationContext.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="71" selection-start="965" selection-end="965" vertical-scroll-proportion="0.33275563">
+            <state line="24" column="58" selection-start="1611" selection-end="1611" vertical-scroll-proportion="0.66551125">
               <folding />
             </state>
           </provider>
@@ -817,7 +721,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prabin - Tried calling the home jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prabin - Movies working" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -831,6 +735,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Prabin - Tried calling the home jsp" />
+    <MESSAGE value="Prabin - Movies working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -966,7 +871,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="71" selection-start="965" selection-end="965" vertical-scroll-proportion="0.33275563">
+        <state line="24" column="58" selection-start="1611" selection-end="1611" vertical-scroll-proportion="0.66551125">
           <folding />
         </state>
       </provider>
