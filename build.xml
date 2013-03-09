@@ -14,8 +14,6 @@
     <property name="test.report.dir" location="${report.dir}/test"/>
 
     <path id="common-classpath">
-        <pathelement location="${unit.test.dir}/resources"/>
-        <pathelement location="${src.dir}/resources"/>
         <pathelement location="${src.dir}/deployment/env/dev"/>
         <fileset dir="${compile.dir}"/>
         <fileset dir="lib/runtime/jar"/>
@@ -138,7 +136,9 @@
         <mkdir dir="${dist.dir}/webapp"/>
         <war destfile="${dist.dir}/${ant.project.name}.war" webxml="${src.dir}/webapp/WEB-INF/web.xml">
             <classes dir="${dist.dir}/classes"/>
-            <classes dir="${src.dir}/resources"/>
+            <!--todo - pleases note that properties need to work when CI deployment is done.
+                Please look at the deployment dir.-->
+            <!--<classes dir="${src.dir}/resources"/>-->
             <webinf dir="${src.dir}/deployment">
                 <include name="applicationContext-*.xml"/>
             </webinf>
