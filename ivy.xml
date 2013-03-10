@@ -1,6 +1,6 @@
 <ivy-module version="2.0">
 
-    <info organisation="com.example.app" module="app"/>
+    <info organisation="com.example.video" module="app"/>
 
     <configurations>
         <conf name="jetty"/>

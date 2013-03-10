@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="app" default="build" basedir=".">
+<project name="videorental" default="build" basedir=".">
 
     <property name="src.dir" location="src/main"/>
     <property name="unit.test.dir" location="src/unit-tests"/>
@@ -182,7 +182,7 @@
     </target>
 
     <target name="run-jetty" depends="make-jars" description="Run application in Jetty.">
-        <java classname="com.example.app.jetty.WebServer" classpathref="system-classpath" fork="true"
+        <java classname="com.example.video.jetty.WebServer" classpathref="system-classpath" fork="true"
               failonerror="true"/>
     </target>
 
