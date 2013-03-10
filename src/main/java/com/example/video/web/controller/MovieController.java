@@ -25,7 +25,7 @@ public class MovieController {
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
     public String index(Model model) {
         logger.info("logging the movies controller");
-        model.addAttribute("movies", Arrays.asList());
+        model.addAttribute("movies", movieRepository.selectAll());
         return "home";
     }
 
