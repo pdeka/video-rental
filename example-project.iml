@@ -38,6 +38,7 @@
     <orderEntry type="library" exported="" name="jetty-jars" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="runtime-jars" level="project" />
     <orderEntry type="library" exported="" name="buildtime-jars" level="project" />
+    <orderEntry type="library" name="buildtime-bundles" level="project" />
   </component>
 </module>
 

@@ -18,6 +18,7 @@
         <fileset dir="${compile.dir}"/>
         <fileset dir="lib/runtime/jar"/>
         <fileset dir="lib/buildtime/jar"/>
+        <fileset dir="lib/buildtime/bundle"/>
         <fileset dir="lib/jetty/jar" excludes="ant-*.jar"/>
     </path>
 

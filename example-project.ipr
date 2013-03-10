@@ -194,6 +194,14 @@
     <option name="showOnlyWarnings" value="false" />
   </component>
   <component name="libraryTable">
+    <library name="buildtime-bundles">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/lib/buildtime/bundle" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+      <jarDirectory url="file://$PROJECT_DIR$/lib/buildtime/bundle" recursive="false" />
+    </library>
     <library name="buildtime-jars">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/lib/buildtime/jar" />
