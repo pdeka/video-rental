@@ -21,7 +21,7 @@ public class MovieControllerTest {
 
     @Test
     public void shouldRedirectToHome() {
-        MovieController controller = new MovieController(new MovieRepository(Mockito.mock(HibernateTemplate.class)));
+        MovieController controller = new MovieController(new MovieRepository(Mockito.mock(HibernateOperations.class)));
         String viewName = controller.index(model);
         assertThat(viewName, is("home"));
     }

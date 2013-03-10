@@ -24,10 +24,11 @@ public class MovieRepositoryTest {
     @Autowired
     private MovieRepository movieRepository;
 
-    @Ignore("Please note that this test is breaking because of hibernate config issues.")
+    @Ignore("Cannot figure out what the hell is the issue with H2")
     @Test
     public void shouldRetrieveAllMovies() {
         List<Movie> movies = movieRepository.selectAll();
         assertThat(movies.size(), equalTo(1));
+        assertThat(movies.get(0).getTitle(), equalTo("Shawshank Redemption"));
     }
 }

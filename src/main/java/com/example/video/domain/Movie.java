@@ -18,25 +18,15 @@ public class Movie {
     @Column
     private String title;
 
-    private Price price;
-
     public Movie() {
     }
 
     public Movie(String title, Price price) {
         this.title = title;
-        setPrice(price);
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setPrice(Price price) {
-        this.price = price;
-    }
-
-    public Price getPrice() {
-        return price;
-    }
 }
