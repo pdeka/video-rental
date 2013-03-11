@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="header">
-		<h2>Video Rental</h2>
+		<h2>Video Rental Login</h2>
 	</div>
 	${body}
 	<div id="footer">

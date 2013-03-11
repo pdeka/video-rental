@@ -6,6 +6,7 @@ import com.example.video.domain.specification.Specification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Set;
@@ -14,7 +15,7 @@ import java.util.Set;
 public class SetBasedCustomerRepository extends SetBasedRepository<Customer> implements CustomerRepository {
 
     public SetBasedCustomerRepository() {
-    }
+        }
 
     public SetBasedCustomerRepository(final Collection<Customer> entities) {
         super(entities);

@@ -116,6 +116,7 @@
         <dependency org="cglib" name="cglib-nodep" rev="2.1_3" transitive="false" conf="runtime->*" />
 
         <dependency org="joda-time" name="joda-time" rev="2.2" transitive="false" conf="buildtime->*" />
+        <dependency org="opensymphony" name="sitemesh" rev="2.4.2" transitive="false" conf="buildtime->*" />
 
     </dependencies>
 </ivy-module>

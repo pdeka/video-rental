@@ -5,6 +5,8 @@ import com.example.video.domain.Rental;
 import com.example.video.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Collection;
 
@@ -28,9 +30,10 @@ public class ViewCurrentRentalsController {
         return rentals;
     }
 
+    @RequestMapping(value = "/rentals", method = RequestMethod.GET)
     public String execute() throws Exception {
         rentals = rentalRepository.currentRentalsFor(customer);
-        return "viewName";
+        return "rentals";
     }
 
 }

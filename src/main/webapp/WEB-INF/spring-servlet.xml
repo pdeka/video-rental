@@ -11,6 +11,7 @@
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/decorators/**" location="/decorators/"/>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:properties-ref="externalProperties"
