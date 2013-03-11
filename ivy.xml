@@ -99,7 +99,7 @@
         <dependency org="dom4j" name="dom4j" rev="1.6.1" transitive="false" conf="buildtime,runtime->*" />
 
         <dependency org="aopalliance" name="aopalliance" rev="1.0" transitive="false" conf="buildtime,runtime->*"/>
-        <dependency org="com.h2database" name="h2" rev="1.3.170" transitive="false" conf="runtime->*"/>
+        <dependency org="com.h2database" name="h2" rev="1.3.170" transitive="false" conf="buildtime,runtime->*"/>
         <dependency org="javax.transaction" name="jta" rev="1.1" transitive="false" conf="runtime->*"/>
         <dependency org="commons-collections" name="commons-collections" rev="3.2.1" transitive="false" conf="runtime->*" />
         <dependency org="commons-logging" name="commons-logging" rev="1.1.1" transitive="false" conf="runtime->*" />
@@ -109,7 +109,7 @@
         <dependency org="commons-pool" name="commons-pool" rev="1.5" transitive="false" conf="buildtime->*"/>
         <dependency org="antlr" name="antlr" rev="2.7.6" transitive="false" conf="runtime->*" />
         <dependency org="cglib" name="cglib-nodep" rev="2.1_3" transitive="false" conf="runtime->*" />
-        <dependency org="cglib" name="cglib-nodep" rev="2.1_3" transitive="false" conf="runtime->*" />
+
 
     </dependencies>
 </ivy-module>
