@@ -1,13 +1,10 @@
 package com.example.video.web.controller;
 
-import com.example.video.repository.MovieRepository;
+import com.example.video.repository.SetBasedMovieRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.orm.hibernate3.HibernateOperations;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.ui.Model;
 
 import static org.hamcrest.core.Is.is;
@@ -21,10 +18,9 @@ public class MovieControllerTest {
 
     @Test
     public void shouldRedirectToHome() {
-        MovieController controller = new MovieController(new MovieRepository(Mockito.mock(HibernateOperations.class)));
+        MovieController controller = new MovieController(new SetBasedMovieRepository());
         String viewName = controller.index(model);
         assertThat(viewName, is("home"));
     }
-
 
 }
