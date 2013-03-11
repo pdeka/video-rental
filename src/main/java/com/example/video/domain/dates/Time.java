@@ -1,4 +1,13 @@
 package com.example.video.domain.dates;
 
-public class Time {
+public interface Time {
+    int hourOfDay();
+
+    int minuteOfHour();
+
+    int secondOfMinute();
+
+    boolean isAfterNow();
+
+    boolean isBeforeNow();
 }

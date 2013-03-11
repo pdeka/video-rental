@@ -1,6 +1,7 @@
 package com.example.video.domain;
 
-import org.joda.time.LocalDateTime;
+
+import com.example.video.domain.dates.LocalDateTime;
 
 import java.util.Collections;
 import java.util.HashSet;
