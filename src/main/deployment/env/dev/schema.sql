@@ -1,8 +1,5 @@
-drop table MOVIES;
+drop table if exists MOVIES;
 
-create table MOVIES(
-  id NUMBER(10) primary key,
-  title VARCHAR2(50) not null
-);
+CREATE TABLE MOVIES(ID INT PRIMARY KEY, NAME VARCHAR(255));
 
-insert into MOVIES values (1, "Shawshank Redemption");
+-- insert into MOVIES values (1, 'Shawshank Redemption');
