@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 
 @Controller
@@ -31,9 +33,12 @@ public class ViewCurrentRentalsController {
     }
 
     @RequestMapping(value = "/rentals", method = RequestMethod.GET)
-    public String execute() throws Exception {
+    public ModelAndView execute(HttpSession session) throws Exception {
+        Customer customer = (Customer) session.getAttribute("customer");
         rentals = rentalRepository.currentRentalsFor(customer);
-        return "rentals";
+        ModelAndView modelAndView = new ModelAndView("rentals");
+        modelAndView.getModelMap().put("rentals", rentals);
+        return modelAndView;
     }
 
 }
