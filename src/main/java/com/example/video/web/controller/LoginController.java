@@ -21,7 +21,6 @@ public class LoginController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private final CustomerRepository customerRepository;
-    private String customerName;
     private Customer loggedInCustomer;
 
     @Autowired
@@ -29,36 +28,24 @@ public class LoginController {
         this.customerRepository = customerRepository;
     }
 
-    public void setCustomerName(final String customer) {
-        this.customerName = customer;
-    }
-
     public Set<Customer> getCustomers() {
         return customerRepository.selectAll(new CustomersOrderedByNameComparator());
     }
 
-    public Customer getLoggedInCustomer() {
-        return loggedInCustomer;
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView get() throws Exception, NonUniqueObjectSelectedException {
+        logger.info("Executing GET on Login Controller");
+        ModelAndView modelAndView = new ModelAndView("login");
+        ModelMap modelMap = modelAndView.getModelMap();
+        modelMap.put("customers", getCustomers());
+        return modelAndView;
+    }
 
-        logger.info("Executing get on Login Controller");
-
-        if (customerName == null) {
-            logger.info("Customer Name is null");
-            ModelAndView modelAndView = new ModelAndView("login");
-            ModelMap modelMap = modelAndView.getModelMap();
-            modelMap.put("customers", getCustomers());
-            return modelAndView;
-        }
-
+    @RequestMapping(value = "/login/process", method = RequestMethod.POST)
+    public String post(String customerName) throws Exception, NonUniqueObjectSelectedException {
+        logger.info("Executing POST on Login Controller");
         loggedInCustomer = customerRepository.selectUnique(new CustomerWithNameSpecification(customerName));
-        if (loggedInCustomer == null) {
-            logger.info("Logged In Customer Is Null");
-            return new ModelAndView("login");
-        }
-        return new ModelAndView("movies");
+        logger.info("Going to home for " + customerName);
+        return "redirect:/home";
     }
 }

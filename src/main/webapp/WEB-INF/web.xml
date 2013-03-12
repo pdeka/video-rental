@@ -39,6 +39,11 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>static/*</url-pattern>
+    </servlet-mapping>
+
     <!--<filter>-->
         <!--<filter-name>sitemesh</filter-name>-->
         <!--<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>-->
