@@ -1,12 +1,12 @@
 body {
     margin: 0 10px 0 10px;
     font : normal 12px Verdana, Arial, Helvetica, sans-serif;
-    color: #0464BB;
+    color: #666666;
     padding: 0;
 }
 #header {
     margin: 0 -10px 0 -10px;
-    background-color: #ccccff;
+    background-color: #C7E1BA;
     padding: 0;
     text-align: center;
     height: 2em;
@@ -17,7 +17,7 @@ body {
     display: inline;
 }
 #header .tab {
-    background-color: #aaaaff;
+    background-color: #9CB770;
     float: right;
     margin: 0 1em 0 1em;
     padding: 0 10px 0 10px;

@@ -12,7 +12,7 @@ public class LogoutController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String get(HttpSession session) throws Exception {
         session.invalidate();
-        return "rediect:login";
+        return "redirect:login";
     }
 
 }

@@ -17,7 +17,7 @@ Version: 0.98
       position:relative;
       border:#E0E0E0 solid 1px;
       padding:0;   /*12px 0px 2px 5px;*/
-      color:#0464BB;
+      color:#666666;
       text-align:left;
       -moz-border-radius:8px;
       -webkit-border-radius: 8px;
@@ -51,10 +51,10 @@ Version: 0.98
     padding-left: 3px;
     height:71px;
     width:210px;
-    color:#0464BB;
+    color:#666666;
   }
   .wiz-container ul.wiz-list li a:hover {
-    color:#0464BB;
+    color:#666666;
   }
   .wiz-anc-default{
     background-color:#EBEBEB;
@@ -70,8 +70,8 @@ Version: 0.98
   }
   .wiz-anc-current{
     color:#FFF !important;
-    background-color:#EA8511;
-    border:#EA8511 solid 1px;
+    background-color:#9CB770;
+    border:#628B61 solid 1px;
     -moz-border-radius-bottomright  : 25px;
     -moz-border-radius-topright     : 25px;
     -moz-border-radius-bottomleft   : 2px;
@@ -82,9 +82,9 @@ Version: 0.98
     -webkit-border-bottom-right-radius:20px;
   }
   .wiz-anc-done{
-    color:#FFF !important;
-    background-color:#0464BB;
-    border:#0464BB solid 1px;
+    color:#666 !important;
+    background-color:#C7E1BA;
+    border:#628B61 solid 1px;
     -moz-border-radius-bottomright  : 25px;
     -moz-border-radius-topright     : 25px;
     -moz-border-radius-bottomleft   : 2px;
@@ -161,9 +161,9 @@ Version: 0.98
       text-decoration       : none;
   }
   .btn:hover{
-      background      : #EA8511;
+      background      : #628B61;
       color           : #FFFFFF;
-      border          : 1px solid #EA8511;
+      border          : 1px solid #628B61;
       text-decoration : none;
   }
 
@@ -173,7 +173,7 @@ Version: 0.98
     padding:4px;
   }
   .wiz-body .text:focus{
-    border: 1px solid #EA8511;
+    border: 1px solid #628B61;
   }
   .wiz-nav div.error{
     font : bold 12px Verdana, Arial, Helvetica, sans-serif;
