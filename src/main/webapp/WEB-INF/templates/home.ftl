@@ -2,10 +2,13 @@
 <head>
     <title>Rent a Movie</title>
     <link href="static/css/wizard.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="static/css/main.css" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/wizard.js"></script>
 </head>
 <body>
+<#include "header.ftl">
 <h1>Rent a Movie</h1>
-
 <form id="wizard" class="wiz-container" action="rentMovies">
     <ul class="wiz-list">
         <li><a href="#wizard-1">
