@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Set;
 
 @Controller
@@ -42,9 +43,10 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login/process", method = RequestMethod.POST)
-    public String post(String customerName) throws Exception, NonUniqueObjectSelectedException {
+    public String post(String customerName, HttpSession session) throws Exception, NonUniqueObjectSelectedException {
         logger.info("Executing POST on Login Controller");
         loggedInCustomer = customerRepository.selectUnique(new CustomerWithNameSpecification(customerName));
+        session.setAttribute("customer", loggedInCustomer);
         logger.info("Going to home for " + customerName);
         return "redirect:/home";
     }

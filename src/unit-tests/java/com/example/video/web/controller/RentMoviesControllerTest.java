@@ -64,7 +64,7 @@ public class RentMoviesControllerTest {
         controller.setMovieNames(new String[]{THE_GODFATHER.getTitle(), PULP_FICTION.getTitle()});
         final int days = 1;
         controller.setRentalDuration(days);
-        controller.get();
+        controller.get(null, null, null);
 
         verify(rentalRepository).add(argThat(isRentalsForDurationAndOf(days, THE_GODFATHER, PULP_FICTION)));
     }
@@ -74,7 +74,7 @@ public class RentMoviesControllerTest {
         controller.setMovieNames(new String[]{THE_GODFATHER.getTitle(), FINDING_NEMO.getTitle()});
         final int days = 6;
         controller.setRentalDuration(days);
-        controller.get();
+        controller.get(null, null, null);
 
         verify(transactionRepository).add(argThat(isTransactionWithRentalsForDurationAndOf(days, THE_GODFATHER, FINDING_NEMO)));
     }
@@ -88,7 +88,7 @@ public class RentMoviesControllerTest {
 
         final String statement = "my statement";
         when(customer.statement((Set<Rental>) anyObject())).thenReturn(statement);
-        controller.get();
+        controller.get(null, null, null);
 
         verify(customer).statement(argThat(isRentalsForDurationAndOf(days, THE_GODFATHER, PULP_FICTION)));
         assertEquals(statement, controller.getStatement());
