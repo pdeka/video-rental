@@ -5,6 +5,31 @@
     <link rel="stylesheet" href="static/css/main.css" type="text/css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/wizard.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#wizard').wizard({
+                validate: function(idx, elem) {
+                    switch(idx) {
+                        case 0:
+                            if ($('input[name=movieNames]:checked').size() == 0) {
+                                alert('Please select at least one movie');
+                                return false;
+                            }
+                            return true;
+                        case 2:
+                            if ($('input[name=customerName]:checked').size() != 1) {
+                                alert('Please select a customer');
+                                return false;
+                            }
+                            return true;
+                        default:
+                            return true;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
 </head>
 <body>
 <#include "header.ftl">
@@ -28,6 +53,10 @@
                 </div>
             </#list>
             </div>
+            <div class="wiz-nav">
+                <input class="back btn" type="button" value="< Prev" />
+                <input class="next btn" type="button" value="Next >" />
+            </div>
         </div>
         <div id="wizard-2">
             <div class="wiz-content">
@@ -42,6 +71,10 @@
                         <option value="7">7</option>
                     </select>
                 </p>
+            </div>
+            <div class="wiz-nav">
+                <input class="back btn" type="button" value="< Prev" />
+                <input class="done btn" type="submit" value="Done" />
             </div>
         </div>
     </div>
