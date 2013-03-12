@@ -12,7 +12,11 @@ import org.hamcrest.Matcher;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -23,6 +27,7 @@ import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class RentMoviesControllerTest {
 
     private static final Movie THE_GODFATHER = new Movie("The Godfather", Movie.REGULAR);
@@ -35,6 +40,10 @@ public class RentMoviesControllerTest {
     private RentMoviesController controller;
     private Customer customer;
 
+    @Mock
+    HttpSession session;
+
+
     @Before
     public void setUp() throws Exception {
         movieRepository = new SetBasedMovieRepository();
@@ -46,7 +55,9 @@ public class RentMoviesControllerTest {
         transactionRepository = mock(TransactionRepository.class);
         controller = new RentMoviesController(movieRepository, rentalRepository, transactionRepository);
         customer = mock(Customer.class);
-        controller.setCustomer(customer);
+
+        when(session.getAttribute("customer")).thenReturn(customer);
+
     }
 
     @Before
@@ -61,34 +72,28 @@ public class RentMoviesControllerTest {
 
     @Test
     public void shouldCreateRentalForEachMovie() throws Exception {
-        controller.setMovieNames(new String[]{THE_GODFATHER.getTitle(), PULP_FICTION.getTitle()});
-        final int days = 1;
-        controller.setRentalDuration(days);
-        controller.get(null, null, null);
+        String[] movieNames = {THE_GODFATHER.getTitle(), PULP_FICTION.getTitle()};
+        controller.get(movieNames, "1", session);
 
-        verify(rentalRepository).add(argThat(isRentalsForDurationAndOf(days, THE_GODFATHER, PULP_FICTION)));
+        verify(rentalRepository).add(argThat(isRentalsForDurationAndOf(1, THE_GODFATHER, PULP_FICTION)));
     }
 
     @Test
     public void shouldCreateTransactionForAllRentals() throws Exception {
-        controller.setMovieNames(new String[]{THE_GODFATHER.getTitle(), FINDING_NEMO.getTitle()});
-        final int days = 6;
-        controller.setRentalDuration(days);
-        controller.get(null, null, null);
+        String[] movieNames = {THE_GODFATHER.getTitle(), FINDING_NEMO.getTitle()};
+        controller.get(movieNames, "6", session);
 
-        verify(transactionRepository).add(argThat(isTransactionWithRentalsForDurationAndOf(days, THE_GODFATHER, FINDING_NEMO)));
+        verify(transactionRepository).add(argThat(isTransactionWithRentalsForDurationAndOf(6, THE_GODFATHER, FINDING_NEMO)));
     }
 
     @SuppressWarnings("unchecked")
     @Test
     public void shouldRetrieveCustomerStatement() throws Exception {
-        controller.setMovieNames(new String[]{THE_GODFATHER.getTitle(), PULP_FICTION.getTitle()});
+        String[] movieNames = {THE_GODFATHER.getTitle(), PULP_FICTION.getTitle()};
         final int days = 3;
-        controller.setRentalDuration(days);
-
         final String statement = "my statement";
         when(customer.statement((Set<Rental>) anyObject())).thenReturn(statement);
-        controller.get(null, null, null);
+        controller.get(movieNames, "3", session);
 
         verify(customer).statement(argThat(isRentalsForDurationAndOf(days, THE_GODFATHER, PULP_FICTION)));
         assertEquals(statement, controller.getStatement());
