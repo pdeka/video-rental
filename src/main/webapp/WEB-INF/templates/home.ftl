@@ -34,7 +34,7 @@
 <body>
 <#include "header.ftl">
 <h1>Rent a Movie</h1>
-<form id="wizard" class="wiz-container" action="rentMovies">
+<form id="wizard" class="wiz-container" action="rentMovies" method="POST">
     <ul class="wiz-list">
         <li><a href="#wizard-1">
             <h2>Now Showing!</h2>

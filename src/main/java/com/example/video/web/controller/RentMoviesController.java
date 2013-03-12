@@ -60,7 +60,7 @@ public class RentMoviesController {
         return statement;
     }
 
-    @RequestMapping(value = "/rentMovies", method = RequestMethod.GET)
+    @RequestMapping(value = "/rentMovies", method = RequestMethod.POST)
     public ModelAndView get(@RequestParam(value = "movieNames") String[] movieNames,
                             @RequestParam(value = "rentalDuration") String rentalDuration,
                             HttpSession session) throws Exception {
