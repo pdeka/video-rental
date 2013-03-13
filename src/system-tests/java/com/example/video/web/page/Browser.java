@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -33,6 +34,12 @@ public class Browser {
             driver.get(url);
         }
         return this;
+    }
+
+    public <T extends Page> T shows(Class<T> pageClass) {
+        T page = PageFactory.initElements(driver, pageClass);
+        page.verify(this);
+        return page;
     }
 
     public String getHostAddress() {

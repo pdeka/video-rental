@@ -39,6 +39,11 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>static/*</url-pattern>
+    </servlet-mapping>
+
     <error-page>
         <error-code>404</error-code>
         <location>/404.jsp</location>

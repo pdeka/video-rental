@@ -3,7 +3,6 @@ package com.example.video.repository;
 import com.example.video.domain.Customer;
 import com.example.video.domain.specification.OrderComparator;
 import com.example.video.domain.specification.Specification;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;

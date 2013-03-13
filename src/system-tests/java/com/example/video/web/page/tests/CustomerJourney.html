@@ -1,0 +1,33 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <!--<link href="./concordion.css" rel="stylesheet" type="text/css"/>-->
+</head>
+<body>
+
+<h1>Test Name</h1>
+
+<p>As a customer I want to see movies I can select from</p>
+
+<div class="criteria">
+
+    <h2>Acceptance criteria</h2>
+
+    <div class="given">
+        <!--Given a logged in user <span concordion:execute="login(#TEXT)">user</span><br/>-->
+        <!--Test Environment is <span concordion:echo="getEnvironment()"></span><br/>-->
+    </div>
+
+    <div class="when">
+        <span concordion:execute="iGoToHomePage()">
+            Move to the home page<br/>
+        </span>
+    </div>
+
+    <div class="then">
+        <br/>
+        Then <span concordion:assertTrue="iSeeTheListOfMovies()">I see all the movies</span>
+    </div>
+</div>
+
+</body>
+</html>
