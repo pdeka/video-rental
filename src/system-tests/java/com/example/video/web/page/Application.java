@@ -8,6 +8,7 @@ import java.net.ServerSocket;
 public class Application {
 
     private static Boolean START_SERVER = true;
+    private static Boolean USE_FIREFOX = true;
     private static Application instance;
     private WebServer server;
     private Browser browser;
@@ -54,7 +55,7 @@ public class Application {
             port = findFreePort();
             server = new WebServer(port).start();
         }
-        browser = new Browser("http://localhost:" + port, true);
+        browser = new Browser("http://localhost:" + port, USE_FIREFOX);
     }
 
     private void stop() {
