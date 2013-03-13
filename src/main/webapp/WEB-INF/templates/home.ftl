@@ -31,7 +31,7 @@
     </script>
 </head>
 </head>
-<body>
+<body class="home">
 <#include "header.ftl">
 <h1>Rent a Movie</h1>
 <form id="wizard" class="wiz-container" action="rentMovies" method="POST">

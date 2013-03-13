@@ -49,6 +49,7 @@
             <junit fork="yes" forkmode="once" failureproperty="unit.tests.failed" printsummary="yes">
                 <classpath refid="@{classpath}"/>
                 <formatter type="xml"/>
+                <sysproperty key="concordion.output.dir" value="out/test/concordion"/>
                 <batchtest if="testcase" todir="${test.report.dir}">
                     <fileset dir="@{testdir}/java">
                         <include name="**/*.java"/>

@@ -1,15 +1,14 @@
 package com.example.video.web.page;
 
 import com.example.video.jetty.WebServer;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 
 import java.net.ServerSocket;
 
 public class Application {
 
+    private static Boolean START_SERVER = true;
     private static Application instance;
-
     private WebServer server;
     private Browser browser;
 
@@ -28,10 +27,9 @@ public class Application {
             return instance;
         }
         try {
-            int port = findFreePort();
             instance = new Application();
             registerShutdownHook();
-            instance.start(port);
+            instance.start();
             return instance;
 
         } catch (Exception e) {
@@ -50,26 +48,13 @@ public class Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new ShutdownHook()));
     }
 
-    private void start(int port) throws Exception {
-        boolean testWithFirefox = Boolean.getBoolean("test.with.firefox");
-        String hostAddress = System.getProperty("test.with.host.address");
-
-        setSystemProperty("controlm.queue.provider", "none");
-        setSystemProperty("icc.service.provider", "local");
-
-        if (StringUtils.isBlank(hostAddress)) {
+    private void start() throws Exception {
+        int port = 8081;
+        if (START_SERVER) {
+            port = findFreePort();
             server = new WebServer(port).start();
-            hostAddress = "http://localhost:" + port;
-            browser = new Browser(hostAddress, testWithFirefox);
-        } else {
-            browser = new Browser(hostAddress, testWithFirefox);
         }
-    }
-
-    private void setSystemProperty(String key, String value) {
-        if (System.getProperty(key) == null) {
-            System.setProperty(key, value);
-        }
+        browser = new Browser("http://localhost:" + port, true);
     }
 
     private void stop() {
