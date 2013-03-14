@@ -28,11 +28,18 @@ public class Customer {
 			totalAmount += rental.getMovie().getPrice().getCharge(rentalDays);
 
 			frequentRenterPoints += rental.getMovie().getPrice().getFrequentRenterPoints(rentalDays);
+
 		}
 
-		// add footer lines
+            // add footer lines
 		result += "Amount charged is $" + String.valueOf(totalAmount) + "\n";
-		result += "You have a new total of " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+		result += "You have a new total of " + String.valueOf(frequentRenterPoints) + " frequent renter points" + "\n \n";
+
+        if (frequentRenterPoints >= 10) {
+            result += "Congratulations, You are eligible for a free rental";
+        }
+
+
 		return result;
 	}
 
