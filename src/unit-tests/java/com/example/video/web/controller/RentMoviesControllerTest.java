@@ -2,6 +2,7 @@ package com.example.video.web.controller;
 
 import com.example.video.domain.*;
 import com.example.video.domain.dates.Duration;
+import com.example.video.domain.dates.FiniteLocalDate;
 import com.example.video.domain.dates.LocalDate;
 import com.example.video.domain.dates.LocalDateTime;
 import com.example.video.repository.MovieRepository;
@@ -9,6 +10,7 @@ import com.example.video.repository.RentalRepository;
 import com.example.video.repository.SetBasedMovieRepository;
 import com.example.video.repository.TransactionRepository;
 import org.hamcrest.Matcher;
+import org.hibernate.validator.AssertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,10 +20,15 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static com.example.video.domain.Period.of;
+import static com.example.video.domain.dates.Duration.ofDays;
+import static com.example.video.domain.dates.LocalDate.today;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.argThat;
@@ -42,6 +49,12 @@ public class RentMoviesControllerTest {
 
     @Mock
     HttpSession session;
+
+    @Mock
+    Period mockPeriod;
+
+//    @Mock
+//    Duration mockDuration;
 
 
     @Before
@@ -99,12 +112,45 @@ public class RentMoviesControllerTest {
         assertEquals(statement, controller.getStatement());
     }
 
+    @Test
+    public void shouldSayEligibleWhenTenOrMoreFrequentPoints() {
+        Set<Rental> rentals = new HashSet<Rental>();
+
+        Customer customer = new Customer("rommel");
+
+        for(int i=0; i < 6; i++)
+        {
+            Period period = of(today(), ofDays(10));
+            Movie movie = new Movie("Movie" + i, new NewReleasePrice());
+            rentals.add(new Rental(customer, movie, period));
+        }
+
+        assertTrue(customer.statement(rentals).contains("Congratulations"));
+
+
+    }
+
+    @Test
+    public void shouldNotSayEligibleWhenLessThanTen() {
+        Set<Rental> rentals = new HashSet<Rental>();
+
+        Customer customer = new Customer("rommel");
+        Movie movie = new Movie("Movie1", new NewReleasePrice());
+        Period tenDays = of(today(), ofDays(10));
+        Rental firstRental = new Rental(customer, movie, tenDays);
+
+        rentals.add(firstRental);
+
+        assertTrue(!customer.statement(rentals).contains("Congratulations"));
+
+    }
+
     @SuppressWarnings("unchecked")
     private Matcher<Set<Rental>> isRentalsForDurationAndOf(final int days,
                                                            final Movie firstMovie,
                                                            final Movie... movies) {
 
-        final Period period = Period.of(LocalDate.today(), Duration.ofDays(days));
+        final Period period = of(today(), ofDays(days));
 
         final List rentalMatchers = new ArrayList();
         rentalMatchers.add(hasSize(movies.length + 1));
