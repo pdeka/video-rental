@@ -18,6 +18,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -29,11 +31,13 @@ import static com.example.video.domain.Period.of;
 import static com.example.video.domain.dates.Duration.ofDays;
 import static com.example.video.domain.dates.LocalDate.today;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RentMoviesControllerTest {
@@ -150,10 +154,12 @@ public class RentMoviesControllerTest {
 
     @Test
     public void shouldDefaultToOneDayWhenRentingANewRelease() throws Exception {
-        String[] movieNames = {SKY_FALL.getTitle()};
-        controller.get(movieNames, "3", session);
+        String[] movieNames = {SKY_FALL.getTitle(), PULP_FICTION.getTitle()};
+        when(session.getAttribute("customer")).thenReturn(customer);
+        ModelMap modelMap = controller.get(movieNames, "3", session).getModelMap();
 
-        verify(rentalRepository).add(argThat(isRentalsForDurationAndOf(1, SKY_FALL)));
+        assertTrue(((String) modelMap.get("message")).contains("Sky Fall is a new release, can only rent for a day"));
+        assertFalse(((String) modelMap.get("message")).contains("Pulp Fiction"));
     }
 
     @SuppressWarnings("unchecked")
