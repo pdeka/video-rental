@@ -28,9 +28,15 @@ public class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 
 		double totalAmount = 0;
+        int freeDays = 0;
 		for (Rental rental : newRentals) {
 			// show figures for this rental
 			final Integer rentalDays = rental.getPeriod().getDuration().getDays();
+
+            freeDays = rental.getMovie().getPrice().getFreeDays(rentalDays);
+            if (freeDays >= 1) {
+                result += "1 extra day";
+            }
 
 			result += "  " + rental.getMovie().getTitle() + "  -  $"
 					+ String.valueOf(rental.getMovie().getPrice().getCharge(rentalDays)) + "\n";

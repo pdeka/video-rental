@@ -14,4 +14,9 @@ public class NewReleasePrice implements Price {
 			return 1;
 	}
 
+    @Override
+    public int getFreeDays(int daysRented) {
+        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
 }
