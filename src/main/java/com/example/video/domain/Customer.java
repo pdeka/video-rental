@@ -14,6 +14,15 @@ public class Customer {
 		return name;
 	}
 
+    public double getTotalAmount(final Set<Rental> newRentals) {
+        double totalAmount = 0;
+        for (Rental rental : newRentals) {
+            final Integer rentalDays = rental.getPeriod().getDuration().getDays();
+            totalAmount += rental.getMovie().getPrice().getCharge(rentalDays);
+        }
+        return totalAmount;
+    }
+
 	public String statement(final Set<Rental> newRentals) {
 		String result = "Rental Record for " + getName() + "\n";
 
