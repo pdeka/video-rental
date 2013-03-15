@@ -168,9 +168,6 @@ public class RentMoviesControllerTest {
         assertTrue(customer.statement(rentals).contains("1 extra day"));
     }
 
-
-
-/*
     @Test
     public void shouldGetMultipleExtraDayFreeWhenRentChildrenVideoInMultipleOfThreeDays()
     {
@@ -196,7 +193,7 @@ public class RentMoviesControllerTest {
         assertTrue(customer.statement(rentals).contains("2 extra day"));
 
     }
-*/
+
 
 
     @SuppressWarnings("unchecked")

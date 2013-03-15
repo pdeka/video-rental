@@ -35,7 +35,7 @@ public class Customer {
 
             freeDays = rental.getMovie().getPrice().getFreeDays(rentalDays);
             if (freeDays >= 1) {
-                result += "1 extra day";
+                result += freeDays + " extra day";
             }
 
 			result += "  " + rental.getMovie().getTitle() + "  -  $"
