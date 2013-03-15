@@ -8,5 +8,6 @@
 <#include "header.ftl">
 <h1>Rental Statement</h1>
 <pre>${statement}</pre>
+<h4>${message}</h4>
 </body>
 </html>

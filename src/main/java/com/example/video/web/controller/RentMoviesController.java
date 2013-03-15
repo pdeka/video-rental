@@ -89,9 +89,18 @@ public class RentMoviesController {
         final Transaction transaction = new Transaction(LocalDateTime.now(), customer, rentals);
         transactionRepository.add(transaction);
 
+        String msg ="";
+        for (Rental rental : rentals) {
+            if (rental.getMovie().getPrice().equals(Movie.NEW_RELEASE))
+            {
+                msg = rental.getMovie().getTitle() + " is a new release, can only rent for a day";
+            }
+        }
+
         statement = customer.statement(transaction.getRentals());
         ModelAndView modelAndView = new ModelAndView("statement");
         modelAndView.getModelMap().put("statement", statement);
+        modelAndView.getModelMap().put("message", msg);
         return modelAndView;
     }
 
