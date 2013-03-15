@@ -156,6 +156,49 @@ public class RentMoviesControllerTest {
         verify(rentalRepository).add(argThat(isRentalsForDurationAndOf(1, SKY_FALL)));
     }
 
+
+    @Test
+    public void shouldGetExtraOneFreeDayForThreeDayChildrenRental(){
+        Set<Rental> rentals = new HashSet<Rental>();
+        Customer customer = new Customer("james");
+        Movie movie = new Movie("Movie1", new ChildrensPrice());
+        Period threeDays = of(today(), ofDays(3));
+        Rental firstRental = new Rental(customer, movie, threeDays);
+        rentals.add(firstRental);
+        assertTrue(customer.statement(rentals).contains("1 extra day"));
+    }
+
+
+
+/*
+    @Test
+    public void shouldGetMultipleExtraDayFreeWhenRentChildrenVideoInMultipleOfThreeDays()
+    {
+        Set<Rental> rentals = new HashSet<Rental>();
+        Customer customer = new Customer("james");
+        Movie movie = new Movie("Movie1", new ChildrensPrice());
+        Period sixDays = of(today(), ofDays(6));
+        Rental firstRental = new Rental(customer, movie, sixDays);
+        rentals.add(firstRental);
+        assertTrue(customer.statement(rentals).contains("2 extra day"));
+
+    }
+
+    @Test
+    public void shouldGetMultipleExtraDayFreeWhenRentChildrenVideoForSevenDays()
+    {
+        Set<Rental> rentals = new HashSet<Rental>();
+        Customer customer = new Customer("james");
+        Movie movie = new Movie("Movie1", new ChildrensPrice());
+        Period sevenDays = of(today(), ofDays(7));
+        Rental firstRental = new Rental(customer, movie, sevenDays);
+        rentals.add(firstRental);
+        assertTrue(customer.statement(rentals).contains("2 extra day"));
+
+    }
+*/
+
+
     @SuppressWarnings("unchecked")
     private Matcher<Set<Rental>> isRentalsForDurationAndOf(final int days,
                                                            final Movie firstMovie,

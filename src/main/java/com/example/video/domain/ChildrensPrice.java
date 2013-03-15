@@ -13,4 +13,13 @@ public class ChildrensPrice implements Price {
 		return 1;
 	}
 
+    @Override
+    public int getFreeDays(int daysRented) {
+        int result = 0;
+        if (daysRented > 2) {
+            result = 1;
+        }
+        return result;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
 }
