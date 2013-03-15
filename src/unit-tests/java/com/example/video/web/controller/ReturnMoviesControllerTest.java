@@ -13,10 +13,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static com.example.video.domain.dates.Duration.ofDays;
 import static com.example.video.domain.dates.LocalDate.today;
@@ -69,15 +66,19 @@ public class ReturnMoviesControllerTest {
         verify(rentalRepository, times(1)).currentRentalsFor(customer);
         verify(rentalRepository, times(1)).removeAll(captor.capture());
         Collection<Rental> capturedRentals = captor.getValue();
-        Iterable<String> actualMovieNames = Iterables.<Rental, String>transform(capturedRentals, new Function<Rental, String>() {
+        Set<String> actualMovieNames = ImmutableSet.copyOf(
+                Iterables.<Rental, String>transform(capturedRentals,
+                        new Function<Rental, String>() {
             @Override
             public String apply(@Nullable Rental rental) {
                 return rental.getMovie().getTitle();
             }
-        });
+        }));
 
-        assertTrue(Iterables.elementsEqual(actualMovieNames, Arrays.asList(movieNames)));
+        List<String> expectedMovieNames = Arrays.asList(movieNames);
+//        assertTrue(Iterables.elementsEqual(actualMovieNames, Arrays.asList(movieNames)));
 
+        assertTrue(actualMovieNames.containsAll(expectedMovieNames));
     }
 }
 
