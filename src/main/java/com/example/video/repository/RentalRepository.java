@@ -26,4 +26,6 @@ public interface RentalRepository {
     Rental selectUnique(Specification<Rental> specification) throws NonUniqueObjectSelectedException;
 
     Set<Rental> currentRentalsFor(Customer customer);
+
+    void removeAll(Collection<Rental> returnRentals);
 }
