@@ -1,0 +1,2 @@
+Go location /Library/Application Support/CruiseServer
+generate password htpasswd -c -s passwd user
