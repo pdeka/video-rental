@@ -9,6 +9,7 @@ import com.example.video.repository.MovieRepository;
 import com.example.video.repository.RentalRepository;
 import com.example.video.repository.SetBasedMovieRepository;
 import com.example.video.repository.TransactionRepository;
+import com.example.video.repository.exception.NullObjectAddedException;
 import org.hamcrest.Matcher;
 import org.hibernate.validator.AssertTrue;
 import org.junit.After;
@@ -40,6 +41,7 @@ public class RentMoviesControllerTest {
     private static final Movie THE_GODFATHER = new Movie("The Godfather", Movie.REGULAR);
     private static final Movie PULP_FICTION = new Movie("Pulp Fiction", Movie.REGULAR);
     private static final Movie FINDING_NEMO = new Movie("Finding Nemo", Movie.CHILDRENS);
+    private static final Movie SKY_FALL = new Movie("Sky Fall", Movie.NEW_RELEASE);
 
     private MovieRepository movieRepository;
     private RentalRepository rentalRepository;
@@ -63,6 +65,7 @@ public class RentMoviesControllerTest {
         movieRepository.add(THE_GODFATHER);
         movieRepository.add(PULP_FICTION);
         movieRepository.add(FINDING_NEMO);
+        movieRepository.add(SKY_FALL);
 
         rentalRepository = mock(RentalRepository.class);
         transactionRepository = mock(TransactionRepository.class);
@@ -143,6 +146,14 @@ public class RentMoviesControllerTest {
 
         assertTrue(!customer.statement(rentals).contains("Congratulations"));
 
+    }
+
+    @Test
+    public void shouldDefaultToOneDayWhenRentingANewRelease() throws Exception {
+        String[] movieNames = {SKY_FALL.getTitle()};
+        controller.get(movieNames, "3", session);
+
+        verify(rentalRepository).add(argThat(isRentalsForDurationAndOf(1, SKY_FALL)));
     }
 
     @SuppressWarnings("unchecked")
