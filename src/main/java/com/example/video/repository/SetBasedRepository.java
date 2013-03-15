@@ -79,4 +79,7 @@ public class SetBasedRepository<T> {
         return target;
     }
 
+    public void removeAll(Collection<T> collection) {
+        objectSet.removeAll(collection);
+    }
 }

@@ -16,10 +16,11 @@ public class VideoRentalConfiguration {
         final Movie avatar = new Movie("Avatar", Movie.NEW_RELEASE);
         final Movie upInTheAir = new Movie("Up In The Air", Movie.REGULAR);
         final Movie findingNemo = new Movie("Finding Nemo", Movie.CHILDRENS);
+        final Movie cars = new Movie("Cars", Movie.CHILDRENS);
         final Movie shawShank = new Movie("Shawshank Redemption", Movie.REGULAR);
         final Movie topGun = new Movie("Top Gun", Movie.REGULAR);
         final Movie scaryMovie = new Movie("Scary Movie", Movie.REGULAR);
-        return new SetBasedMovieRepository(Arrays.asList(avatar, upInTheAir, findingNemo, shawShank, topGun, scaryMovie));
+        return new SetBasedMovieRepository(Arrays.asList(avatar, upInTheAir, findingNemo, cars, shawShank, topGun, scaryMovie));
     }
 
     @Bean
