@@ -20,7 +20,6 @@ public class ChildrensPrice implements Price {
 
         freeDays = daysRented / 3;
         result = (int) freeDays;
-
         return result;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
