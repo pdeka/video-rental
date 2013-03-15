@@ -27,4 +27,6 @@ public class NewReleasePriceTests {
         int frequentRenterPoints = price.getFrequentRenterPoints(1);
         assertThat(frequentRenterPoints, is(1));
     }
+
+
 }

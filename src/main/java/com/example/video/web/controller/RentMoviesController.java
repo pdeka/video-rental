@@ -70,10 +70,17 @@ public class RentMoviesController {
 
         final Set<Movie> movies = movieRepository.withTitles(movieNames);
         final Period rentalPeriod = Period.of(LocalDate.today(), Duration.ofDays(new Integer(rentalDuration)));
+        final Period oneDayRentalPeriod = Period.of(LocalDate.today(), Duration.ofDays(new Integer(1)));
 
         final Set<Rental> rentals = new LinkedHashSet<Rental>();
         for (final Movie movie : movies) {
-            final Rental rental = new Rental(customer, movie, rentalPeriod);
+            Rental rental;
+            if (movie.getPrice().equals(Movie.NEW_RELEASE)) {
+                rental = new Rental(customer, movie, oneDayRentalPeriod);
+            } else {
+                rental = new Rental(customer, movie, rentalPeriod);
+
+            }
             rentals.add(rental);
         }
 
