@@ -162,6 +162,8 @@ public class RentMoviesControllerTest {
         assertFalse(((String) modelMap.get("message")).contains("Pulp Fiction"));
     }
 
+
+
     @SuppressWarnings("unchecked")
     private Matcher<Set<Rental>> isRentalsForDurationAndOf(final int days,
                                                            final Movie firstMovie,

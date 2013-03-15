@@ -12,5 +12,6 @@
     <li>${rental.movie.title} (ends ${rental.period.endDate})</li>
 </#list>
 </ul>
+<h3>${message}</h3>
 </body>
 </html>
